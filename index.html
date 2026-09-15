@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASE #070411 // NGUYỄN MINH ÁNH — Forensic Portfolio & Investigation File</title>
+  <meta name="description" content="Hồ sơ điều tra cá nhân của Nguyễn Minh Ánh — Sinh viên Kinh tế Quốc tế tại Đại học Ngoại thương (FTU).">
+  <meta property="og:title" content="CASE #070411 // NGUYỄN MINH ÁNH — Forensic Portfolio & Investigation File">
+  <meta property="og:description" content="Hồ sơ điều tra cá nhân của Nguyễn Minh Ánh — Sinh viên Kinh tế Quốc tế tại Đại học Ngoại thương (FTU).">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Google Fonts: Editorial & Detective Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/detective-board.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="dossier-sealed">
+
+  <!-- =======================================================================
+       PERSISTENT DETECTIVE DOCKET HUD (Navigation Bar)
+       ======================================================================= -->
+  <header class="detective-hud-dock" id="detective-hud-dock">
+    <button class="hud-btn" id="back-to-hero-btn" title="Quay lại trang bìa">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>BACK</span>
+    </button>
+
+    <div class="hud-brand-case">
+      <span class="hud-case-badge">CASE #070411</span>
+      <span class="hud-case-title" data-i18n-vi="NGUYỄN MINH ÁNH" data-i18n-en="NGUYEN MINH ANH">NGUYỄN MINH ÁNH</span>
+    </div>
+    
+    <nav aria-label="Investigation Navigation">
+      <ul class="hud-nav-links">
+        <li><a href="#section-subject" class="hud-nav-link active">01 SUBJECT</a></li>
+        <li><a href="#section-evidence" class="hud-nav-link">02 EVIDENCE</a></li>
+        <li><a href="#section-caserecords" class="hud-nav-link">03 CASE RECORDS</a></li>
+        <li><a href="#section-toolkit" class="hud-nav-link">04 TOOLKIT</a></li>
+        <li><a href="#section-intel" class="hud-nav-link">05 INTELLIGENCE</a></li>
+        <li><a href="#section-deduction" class="hud-nav-link">06 DEDUCTIONS</a></li>
+        <li><a href="#section-nextcase" class="hud-nav-link">07 NEXT CASE</a></li>
+      </ul>
+    </nav>
+
+    <div class="hud-actions">
+      <button class="hud-btn" id="toggle-sound-btn" title="Toggle Procedural Audio">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <span>SOUND</span>
+      </button>
+
+      <button class="hud-btn" id="toggle-lens-btn" title="Toggle Magnifying Lens (Shortcut: M)">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>LENS</span>
+      </button>
+
+      <button class="hud-btn" id="toggle-lang-btn" title="Toggle Language">
+        <span>LANG: <strong>VI</strong></span>
+      </button>
+
+      <button class="hud-btn" id="open-summary-btn" title="View Printable Dossier Summary">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        <span>DOSSIER</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       HERO: THE VICTORIAN DETECTIVE STUDY DESK (Opening Prologue)
+       ======================================================================= -->
+  <section class="hero-desk-section" id="hero-desk-prologue">
+    <div class="desk-composition">
+      
+      <!-- Ambient Desk Props -->
+      <div class="ambient-prop-note">
+        <p>“Look beyond the surface. The truth is always woven from verifiable evidence.”</p>
+        <span style="font-size: 0.85rem; display:block; margin-top: 0.5rem; text-align: right;">— 221B Baker St.</span>
+      </div>
+
+      <div class="ambient-prop-glass"></div>
+
+      <!-- Subject Portrait Frame (Position & frame preserved - ready for user's photo) -->
+      <figure class="desk-portrait-frame" id="desk-portrait-frame" title="Vị trí ảnh chân dung chủ thể (Click để phóng to khi có ảnh)">
+        <div class="portrait-tape"></div>
+        <div class="portrait-photo-inner">
+          <img
+            class="desk-portrait-img lightbox-trigger"
+            src="assets/images/portrait.jpg"
+            alt="Ảnh chân dung Nguyễn Minh Ánh"
+            style="display: none;"
+            onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('is-fallback');"
+            onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.add('is-fallback');"
+          >
+          <div class="portrait-fallback-view is-fallback">
+            <div class="fallback-icon">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+            <span class="caption-stamp" data-i18n-vi="HỒ SƠ ẢNH" data-i18n-en="PHOTO FILE">HỒ SƠ ẢNH</span>
+            <span class="fallback-monogram">NMA</span>
+            <span class="fallback-sub" data-i18n-vi="VỊ TRÍ ẢNH CHÂN DUNG" data-i18n-en="PORTRAIT SLOT">VỊ TRÍ ẢNH CHÂN DUNG</span>
+          </div>
+        </div>
+        <figcaption class="portrait-polaroid-caption">
+          <span class="caption-stamp" data-i18n-vi="ẢNH CHỦ THỂ" data-i18n-en="SUBJECT PHOTO">ẢNH CHỦ THỂ</span>
+          <span class="caption-name" data-i18n-vi="Nguyễn Minh Ánh" data-i18n-en="Nguyen Minh Anh">Nguyễn Minh Ánh</span>
+        </figcaption>
+      </figure>
+
+      <!-- Sealed Case File Folder -->
+      <div class="sealed-case-dossier">
+        <div class="case-top-meta">
+          <span class="case-serial-tag">CASE #070411</span>
+          <span class="case-security-level">CLASSIFIED FORENSIC DOSSIER</span>
+        </div>
+
+        <div class="case-inquiry-headline">
+          <span class="mystery-prompt">INVESTIGATION INQUIRY: WHO IS THE SUBJECT?</span>
+          <h1 class="subject-name-display" data-i18n-vi="NGUYỄN MINH ÁNH" data-i18n-en="NGUYEN MINH ANH">NGUYỄN MINH ÁNH</h1>
+          <span class="subject-role-badge">INTERNATIONAL ECONOMICS STUDENT • FTU</span>
+        </div>
+
+        <p class="case-narrative-statement">
+          “A mind drawn to numbers, logic, evidence, and the relentless pursuit of better answers.”
+        </p>
+
+        <div class="wax-seal-wrapper">
+          <button
+            class="wax-seal-btn"
+            id="unseal-case-btn"
+            aria-label="Break Wax Seal and Open Case Dossier"
+          >
+            <span class="wax-monogram" id="desk-wax-seal">NMA</span>
+          </button>
+
+          <div class="unseal-instructions">
+            <span
+              class="unseal-primary-cta"
+              id="begin-investigation-btn"
+              role="button"
+              tabindex="0"
+              style="cursor: pointer;"
+              data-i18n-vi="MỞ NIÊM PHONG HỒ SƠ (BẮT ĐẦU ĐIỀU TRA) →"
+              data-i18n-en="UNSEAL CASE FILE (BEGIN INVESTIGATION) →"
+            >
+              MỞ NIÊM PHONG HỒ SƠ (BẮT ĐẦU ĐIỀU TRA) →
+            </span>
+            <span class="unseal-subtext">
+              Click button to commence investigation
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       MAIN INVESTIGATION DOSSIER
+       ======================================================================= -->
+  <main class="main-investigation-dossier dossier-concealed" id="main-investigation-dossier">
+
+    <!-- ===================================================================
+         SECTION 1: THE SUBJECT (PROFILE & PSYCHOLOGICAL TRAITS)
+         =================================================================== -->
+    <section class="dossier-section" id="section-subject">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">01 // THE SUBJECT</span>
+        <h2 class="section-primary-title" data-i18n-vi="HỒ SƠ ĐỐI TƯỢNG ĐIỀU TRA" data-i18n-en="SUBJECT INVESTIGATION DOSSIER">HỒ SƠ ĐỐI TƯỢNG ĐIỀU TRA</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Hồ sơ Đối tượng & Đánh giá Tâm lý" data-i18n-en="Forensic Subject Profile & Psychological Assessment">Hồ sơ Đối tượng & Đánh giá Tâm lý</p>
+      </div>
+
+      <div class="subject-dossier-layout">
+        <!-- Paper Dossier Sheet -->
+        <article class="subject-official-paper">
+          <span class="subject-paper-stamp" data-i18n-vi="HỒ SƠ ĐÃ XÁC MINH" data-i18n-en="RECORD VERIFIED">HỒ SƠ ĐÃ XÁC MINH</span>
+          <h3 class="serif-text" style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #2C1810;" data-i18n-vi="NGUYỄN MINH ÁNH" data-i18n-en="NGUYEN MINH ANH">NGUYỄN MINH ÁNH</h3>
+          <p class="typewriter-text" style="font-size: 0.85rem; color: var(--ink-muted);" data-i18n-vi="Kinh tế Quốc tế • Đại học Ngoại thương (FTU)" data-i18n-en="International Economics • Foreign Trade University (FTU)">
+            Kinh tế Quốc tế • Đại học Ngoại thương (FTU)
+          </p>
+
+          <table class="subject-vital-table">
+            <tbody>
+              <tr>
+                <td class="label" data-i18n-vi="TUỔI & GIỚI TÍNH:" data-i18n-en="AGE & GENDER:">TUỔI & GIỚI TÍNH:</td>
+                <td><strong data-i18n-vi="19 tuổi • Nữ" data-i18n-en="19 years old • Female">19 tuổi • Nữ</strong></td>
+              </tr>
+              <tr>
+                <td class="label" data-i18n-vi="TRƯỜNG ĐẠI HỌC:" data-i18n-en="UNIVERSITY:">TRƯỜNG ĐẠI HỌC:</td>
+                <td data-i18n-vi="Đại học Ngoại thương (FTU)" data-i18n-en="Foreign Trade University (FTU)">Đại học Ngoại thương (FTU)</td>
+              </tr>
+              <tr>
+                <td class="label" data-i18n-vi="CHUYÊN NGÀNH:" data-i18n-en="MAJOR:">CHUYÊN NGÀNH:</td>
+                <td data-i18n-vi="Kinh tế quốc tế (2025–2029)" data-i18n-en="International Economics (2025–2029)">Kinh tế quốc tế (2025–2029)</td>
+              </tr>
+              <tr>
+                <td class="label" data-i18n-vi="HỌC VẤN NỀN TẢNG:" data-i18n-en="FOUNDATIONAL EDUCATION:">HỌC VẤN NỀN TẢNG:</td>
+                <td data-i18n-vi="Lớp chuyên Toán — THPT Chuyên Tuyên Quang (2022–2025)" data-i18n-en="Mathematics Major Class — Tuyen Quang High School for the Gifted (2022–2025)">Lớp chuyên Toán — THPT Chuyên Tuyên Quang (2022–2025)</td>
+              </tr>
+              <tr>
+                <td class="label" data-i18n-vi="LIÊN HỆ TRỰC TIẾP:" data-i18n-en="DIRECT CONTACT:">LIÊN HỆ TRỰC TIẾP:</td>
+                <td>
+                  <a href="#" class="copy-email-action" style="color: var(--wax-crimson); text-decoration: none; font-weight: 600;">
+                    nma070411@gmail.com 📋
+                  </a> 
+                  <span style="color: var(--ink-muted); margin-left: 0.5rem;">• 039xxxxxxx</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="subject-observation-block">
+            <span class="observation-badge" data-i18n-vi="QUAN SÁT TÂM LÝ & TƯ DUY (OBSERVATION):" data-i18n-en="PSYCHOLOGICAL & COGNITIVE OBSERVATION:">QUAN SÁT TÂM LÝ & TƯ DUY (OBSERVATION):</span>
+            <p class="observation-text" data-i18n-vi="Chủ thể thể hiện sự say mê rõ nét khi làm việc với các con số, tư duy logic và giải quyết vấn đề dựa trên lý luận, bằng chứng và cơ sở khoa học. Định hướng phát triển mạnh mẽ về phân tích, dữ liệu và tư duy định lượng, luôn tập trung vào kết quả thực chất." data-i18n-en="The subject demonstrates a distinct passion for working with numbers, logical reasoning, and evidence-based problem solving grounded in scientific methodology. Possesses a strong trajectory toward analytics, data, and quantitative thinking, consistently oriented toward substantive results.">
+              Chủ thể thể hiện sự say mê rõ nét khi làm việc với các con số, tư duy logic và giải quyết vấn đề dựa trên lý luận, bằng chứng và cơ sở khoa học. Định hướng phát triển mạnh mẽ về phân tích, dữ liệu và tư duy định lượng, luôn tập trung vào kết quả thực chất.
+            </p>
+          </div>
+
+          <div class="subject-motivation-box">
+            <h5 class="motivation-heading" data-i18n-vi="ĐỘNG LỰC HỌC TẬP CỐT LÕI:" data-i18n-en="CORE ACADEMIC MOTIVATION:">ĐỘNG LỰC HỌC TẬP CỐT LÕI:</h5>
+            <p class="motivation-quote" data-i18n-vi="“Khám phá kiến thức mới và hiểu sâu hơn những điều đã biết.”" data-i18n-en="“To discover new knowledge and understand what is already known more deeply.”">“Khám phá kiến thức mới và hiểu sâu hơn những điều đã biết.”</p>
+          </div>
+        </article>
+
+        <!-- Right Side: Traits & Education Record -->
+        <div>
+          <h4 class="serif-text" style="font-size: 1.25rem; color: var(--brass-gold); margin-bottom: 1rem;" data-i18n-vi="GIÁ TRỊ CỐT LÕI (KNOWN TRAITS)" data-i18n-en="CORE VALUES (KNOWN TRAITS)">
+            GIÁ TRỊ CỐT LÕI (KNOWN TRAITS)
+          </h4>
+          <div class="core-values-grid" id="core-values-grid">
+            <!-- Rendered by app.js -->
+          </div>
+
+          <h4 class="serif-text" style="font-size: 1.25rem; color: var(--brass-gold); margin-bottom: 1rem;" data-i18n-vi="LỘ TRÌNH HỌC THUẬT CHÍNH QUY" data-i18n-en="FORMAL ACADEMIC TRAJECTORY">
+            LỘ TRÌNH HỌC THUẬT CHÍNH QUY
+          </h4>
+          <div class="education-records-list" id="education-records-list">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 2: EVIDENCE (ACADEMIC ACHIEVEMENTS & BOARD)
+         =================================================================== -->
+    <section class="dossier-section" id="section-evidence">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">02 // EVIDENCE</span>
+        <h2 class="section-primary-title" data-i18n-vi="BẢNG CHỨNG CỨ HỌC THUẬT" data-i18n-en="ACADEMIC EVIDENCE BOARD">BẢNG CHỨNG CỨ HỌC THUẬT</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Bảng Chứng cứ Học thuật • Kết nối bởi Sợi chỉ đỏ Logic" data-i18n-en="Forensic Academic Evidence Board • Connected by the Red Thread of Logic">Forensic Academic Evidence Board • Connected by the Red Thread of Logic</p>
+      </div>
+
+      <div class="evidence-board-wrapper" id="evidence-board-container">
+        <!-- Dynamic Red Thread Canvas -->
+        <canvas id="evidence-canvas-threads"></canvas>
+
+        <!-- Central Deduction Hub -->
+        <div class="evidence-central-hub" id="evidence-deduction-hub">
+          <div class="hub-brass-pin"></div>
+          <span class="hub-title" data-i18n-vi="SỢI CHỈ ĐỎ CỦA TƯ DUY (RED THREAD OF LOGIC)" data-i18n-en="THE RED THREAD OF LOGIC">SỢI CHỈ ĐỎ CỦA TƯ DUY (RED THREAD OF LOGIC)</span>
+          <h3 class="hub-deduction-statement" data-i18n-vi="Số Liệu → Toán Học → Kinh Tế → Phân Tích Dữ Liệu → Tư Duy Giải Quyết Vấn Đề" data-i18n-en="Data → Mathematics → Economics → Data Analysis → Problem-Solving Mindset">
+            Số Liệu → Toán Học → Kinh Tế → Phân Tích Dữ Liệu → Tư Duy Giải Quyết Vấn Đề
+          </h3>
+          <p class="hub-subtext" data-i18n-vi="Các thành tích không tồn tại rời rạc. Chúng gắn kết bởi một năng lực gốc rễ: Tư duy phân tích duy lý (Analytical Thinking)." data-i18n-en="Achievements do not exist in isolation. They are anchored by a foundational core competency: Analytical Thinking.">
+            Các thành tích không tồn tại rời rạc. Chúng gắn kết bởi một năng lực gốc rễ: <strong>Tư duy phân tích duy lý (Analytical Thinking)</strong>.
+          </p>
+        </div>
+
+        <!-- Evidence Cards Grid -->
+        <div class="evidence-cards-grid" id="evidence-cards-grid">
+          <!-- Rendered by app.js with verified records: GPA 3.83/4.0, Scholarship, Chuyên Toán, Giải Nhì QG khối 11, Giải Ba khối 12 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 3: CASE RECORDS (MATHEMATICS TUTORING)
+         =================================================================== -->
+    <section class="dossier-section" id="section-caserecords">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">03 // CASE RECORDS</span>
+        <h2 class="section-primary-title" data-i18n-vi="HỒ SƠ VỤ ÁN #03: GIA SƯ TOÁN HỌC" data-i18n-en="CASE RECORD #03: MATHEMATICS MENTORSHIP">HỒ SƠ VỤ ÁN #03: GIA SƯ TOÁN HỌC</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Lịch sử Giảng dạy Thực tế • 3 Năm Đồng hành Toán học & Xây dựng Tư duy" data-i18n-en="Didactic Case History • 3 Years of Math Mentorship & Logical Scaffolding">Didactic Case History • 3 Years of Math Mentorship & Logical Scaffolding</p>
+      </div>
+
+      <div id="case-record-content">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 4: THE TOOLKIT (TECHNICAL & PROFESSIONAL SKILLS)
+         =================================================================== -->
+    <section class="dossier-section" id="section-toolkit">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">04 // THE TOOLKIT</span>
+        <h2 class="section-primary-title" data-i18n-vi="BỘ CÔNG CỤ PHÂN TÍCH THỰC CHIẾN" data-i18n-en="OPERATIONAL ANALYTICAL TOOLKIT">BỘ CÔNG CỤ PHÂN TÍCH THỰC CHIẾN</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Công cụ Kỹ thuật • Nhấp vào từng hiện vật để kiểm tra thông số" data-i18n-en="Forensic Technical Instruments • Click each artifact to inspect specifications">Forensic Technical Instruments • Click each artifact to inspect specifications</p>
+      </div>
+
+      <div class="toolkit-grid" id="toolkit-grid">
+        <!-- Rendered by app.js: Python, Excel, Word, PowerPoint, AI Fundamentals, Data & Business -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 5: INTELLIGENCE FILES (LANGUAGES & CERTIFICATIONS)
+         =================================================================== -->
+    <section class="dossier-section" id="section-intel">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">05 // INTELLIGENCE FILES</span>
+        <h2 class="section-primary-title" data-i18n-vi="HỒ SƠ THÔNG TIN" data-i18n-en="INTELLIGENCE & LANGUAGE DOSSIERS">HỒ SƠ THÔNG TIN & NGOẠI NGỮ</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Hồ sơ Thông tin Mật • Chứng chỉ Quốc tế & Tự chủ Tiếp thu Kiến thức" data-i18n-en="Classified Intelligence Files • International Certifications & Autonomous Acquisition">Classified Intelligence Files • International Certifications & Autonomous Acquisition</p>
+      </div>
+
+      <div class="intel-files-grid" id="intel-files-grid">
+        <!-- Rendered by app.js: IELTS 7.0, AI Coursera, Excel-lence Awaits, Chinese HSK 3, Python Adv -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 6: THE DETECTIVE'S DEDUCTION (LEARNING PHILOSOPHY)
+         =================================================================== -->
+    <section class="dossier-section" id="section-deduction">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">06 // THE DETECTIVE'S DEDUCTION</span>
+        <h2 class="section-primary-title" data-i18n-vi="SUY LUẬN: BẢN CHẤT CỦA SỰ NỖ LỰC" data-i18n-en="DEDUCTION: THE ESSENCE OF EFFORT">SUY LUẬN: BẢN CHẤT CỦA SỰ NỖ LỰC</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Triết lý Học tập: Vượt qua 'Nỗ lực ảo' bằng Hệ thống Phương pháp luận" data-i18n-en="Learning Philosophy: Overcoming Illusory Effort through Methodical Systems">Learning Philosophy: Overcoming Illusory Effort through Methodical Systems</p>
+      </div>
+
+      <!-- Reflection Quote Box -->
+      <div class="deduction-philosophy-quote">
+        <span class="quote-mark">“</span>
+        <p class="quote-core-text" data-i18n-vi="Mình từng cho rằng, việc ngồi trên bàn học hàng giờ đồng hồ, hay thậm chí là cả ngày là đang chăm chỉ, nỗ lực. Nhưng sau đó, mình nhận ra mình chỉ đang ‘nỗ lực ảo’ khi kết quả nhận được thì không như mình mong đợi." data-i18n-en="I once believed that sitting at my desk for hours on end, or even an entire day, was proof of diligence and effort. Yet in time, I realized I was merely trapped in 'illusory effort' when the tangible outcomes failed to match expectations.">
+          Mình từng cho rằng, việc ngồi trên bàn học hàng giờ đồng hồ, hay thậm chí là cả ngày là đang chăm chỉ, nỗ lực. Nhưng sau đó, mình nhận ra mình chỉ đang ‘nỗ lực ảo’ khi kết quả nhận được thì không như mình mong đợi.
+        </p>
+        <p class="quote-revelation-text" data-i18n-vi="Từ đó, mình thay đổi phương pháp học tập: lập kế hoạch chi tiết cho từng giờ học, xác định mình muốn học gì, học thế nào và học để làm gì. Mỗi cuối tuần, mình dành khoảng một giờ để nhìn lại kết quả đã đạt được. Cách tiếp cận này giúp mình xây dựng một lộ trình rõ ràng hơn, duy trì động lực và chủ động kiểm chứng liệu mình có đang đi đúng hướng hay không." data-i18n-en="From that realization, I restructured my methodology: establishing rigorous hourly study schedules, defining precisely what to learn, how to study, and to what purpose. At the close of each week, I allocate an hour to audit verified results. This systematic approach provided a transparent trajectory, sustained momentum, and empowered me to proactively calibrate whether I remain on the correct course.">
+          Từ đó, mình thay đổi phương pháp học tập: lập kế hoạch chi tiết cho từng giờ học, xác định mình muốn học gì, học thế nào và học để làm gì. Mỗi cuối tuần, mình dành khoảng một giờ để nhìn lại kết quả đã đạt được. Cách tiếp cận này giúp mình xây dựng một lộ trình rõ ràng hơn, duy trì động lực và chủ động kiểm chứng liệu mình có đang đi đúng hướng hay không.
+        </p>
+      </div>
+
+      <!-- Interactive Deduction Chain Component -->
+      <div id="deduction-interactive-container">
+        <!-- Rendered and controlled by DeductionChain class in deduction-chain.js -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 7: THE NEXT CASE (EXPANSION & ONGOING HORIZONS)
+         =================================================================== -->
+    <section class="dossier-section" id="section-nextcase">
+      <div class="section-forensic-header">
+        <span class="section-index-stamp">07 // THE NEXT CASE</span>
+        <h2 class="section-primary-title" data-i18n-vi="VỤ ÁN TIẾP THEO: HÀNH TRÌNH MỞ" data-i18n-en="THE NEXT CASE: ONGOING TRAJECTORY">VỤ ÁN TIẾP THEO: HÀNH TRÌNH MỞ</h2>
+        <p class="section-investigation-subtitle" data-i18n-vi="Tình trạng Vụ án: Đang diễn ra • Các Hướng Phát triển & Cột mốc Tương lai" data-i18n-en="Case Status: Ongoing • Developing Vectors & Future Milestone Envelopes">Case Status: Ongoing • Developing Vectors & Future Milestone Envelopes</p>
+      </div>
+
+      <h4 class="serif-text" style="font-size: 1.25rem; color: var(--brass-gold); margin-bottom: 1.25rem;" data-i18n-vi="CÁC HƯỚNG PHÁT TRIỂN ĐANG TRIỂN KHAI (ACTIVE HORIZONS)" data-i18n-en="ACTIVE DEVELOPMENT VECTORS (ACTIVE HORIZONS)">
+        CÁC HƯỚNG PHÁT TRIỂN ĐANG TRIỂN KHAI (ACTIVE HORIZONS)
+      </h4>
+      <div class="next-case-vectors-grid" id="next-case-vectors">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <h4 class="serif-text" style="font-size: 1.25rem; color: var(--brass-gold); margin-top: 3rem; margin-bottom: 1.25rem;" data-i18n-vi="HỒ SƠ BỔ SUNG TRONG TƯƠNG LAI (AWAITING FIELD DATA)" data-i18n-en="FUTURE SUPPLEMENTARY DOSSIERS (AWAITING FIELD DATA)">
+        HỒ SƠ BỔ SUNG TRONG TƯƠNG LAI (AWAITING FIELD DATA)
+      </h4>
+      <div class="next-case-slots-grid" id="next-case-slots">
+        <!-- Rendered by app.js: Modular expandable slots for Projects, Activities, Internships, Career -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       FOOTER: CASE CLOSED / EPILOGUE
+       ======================================================================= -->
+  <footer class="footer-closed-dispatch">
+    <div class="footer-dispatch-card">
+      <div class="footer-wax-stamp" id="footer-back-btn" role="button" tabindex="0" style="cursor: pointer;">
+        CLOSED<br>REPORT
+      </div>
+
+      <span class="footer-status-label" data-i18n-vi="TRẠNG THÁI VỤ ÁN: ĐANG MỞ / TIẾP TỤC ĐIỀU TRA" data-i18n-en="CASE STATUS: OPEN / ONGOING INVESTIGATION">CASE STATUS: OPEN / ONGOING INVESTIGATION</span>
+      <h3 class="footer-subject-name" data-i18n-vi="NGUYỄN MINH ÁNH" data-i18n-en="NGUYEN MINH ANH">NGUYỄN MINH ÁNH</h3>
+
+      <p class="footer-motto-quote" data-i18n-vi="“Mọi câu trả lời đúng đắn đều bắt đầu từ một câu hỏi tốt hơn.”" data-i18n-en="“Every sound conclusion begins with a sharper question.”">“Mọi câu trả lời đúng đắn đều bắt đầu từ một câu hỏi tốt hơn.”</p>
+      <p class="footer-submotto" data-i18n-vi="Tư duy duy lý • Phân tích định lượng • Tôn trọng sự thật khách quan" data-i18n-en="Rational Thinking • Quantitative Analysis • Fidelity to Objective Truth">Tư duy duy lý • Phân tích định lượng • Tôn trọng sự thật khách quan</p>
+
+      <div class="footer-contact-actions">
+        <a href="#" class="footer-contact-btn copy-email-action" title="Click to copy email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>nma070411@gmail.com</span>
+        </a>
+
+        <span class="footer-contact-btn" style="cursor: default;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>039xxxxxxx</span>
+        </span>
+      </div>
+
+      <div class="footer-serial-footer" data-i18n-vi="LƯU TRỮ HANOI YARD // MÃ HỒ SƠ: FTU-IE-070411 • HỒ SƠ ỨNG VIÊN ĐÃ XÁC THỰC" data-i18n-en="HANOI YARD ARCHIVE // DOSSIER SERIAL: FTU-IE-070411 • VERIFIED APPLICANT PORTFOLIO">
+        HANOI YARD ARCHIVE // DOSSIER SERIAL: FTU-IE-070411 • VERIFIED APPLICANT PORTFOLIO
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       MODAL INSPECTION DIALOG (Forensic Detail Viewer)
+       ======================================================================= -->
+  <div class="dossier-modal-overlay" id="dossier-modal" role="dialog" aria-modal="true">
+    <div class="modal-dialog-box">
+      <button class="modal-close-btn" aria-label="Close Investigation Modal">×</button>
+      <div id="modal-inner-content">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       IMAGE LIGHTBOX OVERLAY (Forensic Detail Fullscreen Viewer)
+       ======================================================================= -->
+  <div class="lightbox-overlay" id="image-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image Lightbox Viewer">
+    <button class="lightbox-close-btn" aria-label="Close">×</button>
+    <img src="" alt="" class="lightbox-full-image" id="lightbox-full-image">
+  </div>
+
+  <!-- Ambient Background Audio-->
+  <audio id="ambient-bgm" src="assets/audio/ambient.mp3" loop preload="auto"></audio>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/canvas-strings.js"></script>
+  <script src="js/magnifying-glass.js"></script>
+  <script src="js/deduction-chain.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

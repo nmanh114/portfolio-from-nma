@@ -1,0 +1,1241 @@
+/* ==========================================================================
+   CASE #070411: EVIDENCE BOARD & FORENSIC ARTIFACTS
+   ========================================================================== */
+
+/* Corkboard / Felt Investigation Board */
+.evidence-board-wrapper {
+  position: relative;
+  background: 
+    radial-gradient(circle at center, rgba(42, 34, 26, 0.92) 0%, rgba(20, 16, 12, 0.98) 100%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='rgba(197,160,89,0.06)'/%3E%3C/svg%3E");
+  border: 12px solid #2a1f16;
+  outline: 2px solid #5a402d;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.85), 0 20px 50px rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  padding: 3.5rem 2.5rem 4rem;
+  overflow: hidden;
+}
+
+/* Canvas Layer for Red Strings */
+#evidence-canvas-threads {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Central Deduction Hub */
+.evidence-central-hub {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+  background: #18130e;
+  border: 2px solid var(--brass-gold);
+  border-radius: 4px;
+  padding: 1.25rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(197, 160, 89, 0.15);
+  z-index: 5;
+}
+
+.hub-brass-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff1c7, #dfb76c 60%, #8c6d32);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hub-title {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.35rem;
+}
+
+.hub-deduction-statement {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--brass-gold);
+  line-height: 1.4;
+}
+
+.hub-subtext {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--ink-light-muted);
+  margin-top: 0.35rem;
+}
+
+/* Evidence Cards Grid */
+.evidence-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+/* Polaroid-Style Evidence Cards */
+.evidence-polaroid-card {
+  background: var(--bg-parchment-card);
+  color: var(--ink-primary);
+  border-radius: 2px;
+  padding: 1.75rem 1.5rem 1.25rem;
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  border: 1px solid #dcd1be;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.evidence-polaroid-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  border-color: var(--brass-gold);
+}
+
+.evidence-pin-anchor {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, #dfb76c 60%, #8c6d32);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.evidence-stamp-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-typewriter);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  border: 1px dashed var(--wax-crimson);
+  padding: 0.15rem 0.4rem;
+  letter-spacing: 0.06em;
+  transform: rotate(3deg);
+}
+
+.evidence-category-tag {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.evidence-metric-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.metric-main {
+  font-family: var(--font-typewriter);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.metric-sec {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.evidence-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink-primary);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+
+.evidence-card-detail {
+  font-size: 0.86rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.evidence-deduction-ribbon {
+  background: rgba(197, 160, 89, 0.12);
+  border-left: 3px solid var(--brass-gold);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 0 2px 2px 0;
+}
+
+.ribbon-label {
+  display: block;
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--brass-dark);
+  text-transform: uppercase;
+}
+
+.ribbon-text {
+  font-size: 0.8rem;
+  color: var(--ink-primary);
+  font-weight: 500;
+}
+
+.evidence-inspect-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: var(--ink-secondary);
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  padding: 0.45rem;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 100%;
+  transition: var(--transition-smooth);
+}
+
+.evidence-inspect-btn:hover {
+  background: #241f1a;
+  color: var(--brass-gold);
+  border-color: #241f1a;
+}
+
+/* ==========================================================================
+   SECTION 3: CASE RECORD (TUTORING)
+   ========================================================================== */
+.case-file-dossier-paper {
+  background: var(--bg-parchment);
+  color: var(--ink-primary);
+  border-radius: 4px;
+  padding: 3rem;
+  box-shadow: var(--shadow-paper);
+  border: 1px solid #d4c2a5;
+  position: relative;
+}
+
+.case-file-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.case-stamp-red {
+  display: inline-block;
+  background: var(--wax-crimson);
+  color: #fff;
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.case-headline {
+  font-size: 1.75rem;
+  color: var(--ink-primary);
+}
+
+.case-meta-box {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.75rem 1.25rem;
+  border-radius: 2px;
+  border-left: 3px solid var(--wax-crimson);
+}
+
+.case-summary-box {
+  background: rgba(0, 0, 0, 0.03);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.case-summary-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.case-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.case-forensic-item {
+  display: flex;
+  gap: 0.85rem;
+  background: #fdfaf5;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+}
+
+.forensic-item-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2b7a4b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.forensic-item-label {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--ink-primary);
+  margin-bottom: 0.35rem;
+}
+
+.forensic-item-desc {
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+/* Progression Timeline */
+.case-timeline-flow {
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+  padding-top: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-heading {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--wax-crimson-dark);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.timeline-nodes-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+}
+
+.timeline-milestone {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.timeline-milestone::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #d4c2a5;
+  z-index: 1;
+}
+
+.milestone-year {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  margin-bottom: 0.35rem;
+}
+
+.milestone-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brass-gold);
+  border: 2px solid var(--bg-parchment);
+  z-index: 2;
+}
+
+.milestone-desc {
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+}
+
+.case-deduction-footer {
+  background: #241e17;
+  color: var(--brass-gold);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  border-left: 4px solid var(--brass-gold);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SECTION 4: THE TOOLKIT (TECHNICAL SKILLS)
+   ========================================================================== */
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.toolkit-physical-artifact {
+  background: #1f1913;
+  border: 1px solid var(--leather-border);
+  border-radius: 4px;
+  padding: 2rem 1.75rem 1.5rem;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.toolkit-physical-artifact:hover {
+  transform: translateY(-5px);
+  border-color: var(--brass-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(197, 160, 89, 0.15);
+}
+
+.artifact-brass-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, transparent 50%, var(--brass-dark) 50%);
+  border-top-right-radius: 3px;
+}
+
+.artifact-tag-badge {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  color: var(--brass-gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.artifact-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  background: #2b231b;
+  border: 1px solid #4a3a2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brass-gold-hover);
+  margin-bottom: 1.25rem;
+}
+
+.artifact-name {
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.artifact-type {
+  display: block;
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  color: var(--ink-light-muted);
+  margin-bottom: 1.25rem;
+}
+
+.artifact-feature-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.artifact-feature-list li {
+  font-size: 0.84rem;
+  color: #c4bbb0;
+  padding: 0.35rem 0;
+  line-height: 1.4;
+}
+
+.artifact-inspect-hint {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  color: var(--brass-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.artifact-proof-tag {
+  font-family: var(--font-typewriter);
+  font-size: 0.7rem;
+  color: var(--wax-crimson);
+  background: rgba(166, 43, 43, 0.15);
+  border: 1px dashed var(--wax-crimson);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   SECTION 5: INTELLIGENCE FILES (LANGUAGES & CERTS)
+   ========================================================================== */
+.intel-files-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.intel-folder-card {
+  background: #1c1712;
+  border: 1px solid var(--leather-border);
+  border-radius: 0 4px 4px 4px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-paper);
+  transition: var(--transition-smooth);
+}
+
+.intel-folder-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brass-gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.folder-tab {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  height: 24px;
+  background: #2b2219;
+  border: 1px solid var(--leather-border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  padding: 0 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.folder-code {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  letter-spacing: 0.05em;
+}
+
+.folder-stamp {
+  font-family: var(--font-typewriter);
+  font-size: 0.62rem;
+  color: var(--brass-gold);
+}
+
+.folder-body {
+  padding: 1.75rem 1.5rem 1.25rem;
+}
+
+.folder-category {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--ink-light-muted);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.folder-title {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.folder-detail {
+  font-size: 0.85rem;
+  color: #b3a99c;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.folder-footer-next {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--brass-gold);
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 0.75rem;
+}
+
+/* ==========================================================================
+   SECTION 6: THE DETECTIVE'S DEDUCTION (INTERACTIVE CHAIN)
+   ========================================================================== */
+.deduction-philosophy-quote {
+  background: #1e1913;
+  border: 1px solid var(--leather-border);
+  border-radius: 4px;
+  padding: 2.25rem 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-paper);
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--wax-crimson);
+  line-height: 1;
+}
+
+.quote-core-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.quote-revelation-text {
+  font-size: 0.95rem;
+  color: var(--ink-light-muted);
+  line-height: 1.6;
+}
+
+/* Deduction Chain Interactive Nodes */
+.deduction-chain-wrapper {
+  background: #14100c;
+  border: 1px solid var(--leather-border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.deduction-nodes-timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  position: relative;
+  gap: 1rem;
+}
+
+.deduction-nodes-timeline::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: #33271d;
+  z-index: 1;
+}
+
+.deduction-node {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  outline: none;
+}
+
+.node-indicator {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #241d16;
+  border: 2px solid #5a4533;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.node-num {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-light-muted);
+}
+
+.deduction-node:hover .node-indicator {
+  border-color: var(--brass-gold);
+  transform: scale(1.08);
+}
+
+.deduction-node.active-node .node-indicator {
+  background: var(--wax-crimson);
+  border-color: #ff5e5e;
+  box-shadow: 0 0 18px rgba(166, 43, 43, 0.7);
+}
+
+.deduction-node.active-node .node-num {
+  color: #fff;
+}
+
+.deduction-node.past-node .node-indicator {
+  background: var(--brass-dark);
+  border-color: var(--brass-gold);
+}
+
+.deduction-node.past-node .node-num {
+  color: #fff;
+}
+
+.node-brief {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.node-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+}
+
+.node-sub {
+  font-size: 0.72rem;
+  color: var(--ink-light-muted);
+}
+
+/* Active Step Card */
+.deduction-detail-card {
+  background: var(--bg-parchment);
+  color: var(--ink-primary);
+  border-radius: 4px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow-paper);
+  border: 2px solid #c9b79d;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.card-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-phase-badge {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  letter-spacing: 0.08em;
+}
+
+.card-step-tracker {
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.card-step-title {
+  font-size: 1.6rem;
+  color: var(--ink-primary);
+  margin-bottom: 0.25rem;
+}
+
+.card-step-sub {
+  font-family: var(--font-typewriter);
+  font-size: 0.88rem;
+  color: var(--wax-crimson-dark);
+}
+
+.card-step-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+  margin: 1.25rem 0;
+}
+
+.card-step-desc {
+  font-size: 1rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.card-action-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deduction-nav-btn {
+  background: #241e17;
+  color: var(--brass-gold);
+  border: 1px solid var(--brass-dark);
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.deduction-nav-btn:hover:not(:disabled) {
+  background: var(--brass-gold);
+  color: #120e0a;
+}
+
+.deduction-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.step-indicator-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bfaea0;
+}
+
+.dot.dot-active {
+  background: var(--wax-crimson);
+  transform: scale(1.25);
+}
+
+/* Verdict Banner */
+.deduction-verdict-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: #1c1611;
+  border: 1px solid var(--brass-dark);
+  border-radius: 4px;
+  padding: 1.25rem 1.75rem;
+}
+
+.verdict-wax-mark {
+  color: var(--brass-gold);
+  flex-shrink: 0;
+}
+
+.verdict-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brass-gold);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.verdict-text {
+  font-size: 0.92rem;
+  color: var(--ink-light-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SECTION 7: THE NEXT CASE (EXPANSION & HORIZONS)
+   ========================================================================== */
+.next-case-vectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.vector-investigation-card {
+  background: #1c1712;
+  border: 1px solid var(--leather-border);
+  border-radius: 4px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-paper);
+}
+
+.vector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.vector-code {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+}
+
+.vector-tag {
+  font-family: var(--font-typewriter);
+  font-size: 0.65rem;
+  color: var(--brass-gold);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  padding: 0.15rem 0.45rem;
+}
+
+.vector-title {
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.vector-desc {
+  font-size: 0.85rem;
+  color: var(--ink-light-muted);
+  line-height: 1.5;
+}
+
+/* Modular Expansion Slots */
+.next-case-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+.modular-slot-card {
+  background: #16120e;
+  border: 1px dashed #423528;
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+}
+
+.slot-tape {
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 230, 150, 0.25);
+  transform: rotate(-3deg);
+}
+
+.slot-status-badge {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--brass-gold);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.slot-title {
+  font-size: 1.1rem;
+  color: #d1c8bd;
+  margin-bottom: 0.5rem;
+}
+
+.slot-note {
+  font-size: 0.82rem;
+  color: #8c8172;
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+.slot-lock-indicator {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--ink-light-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   FOOTER / CASE CLOSED
+   ========================================================================== */
+.footer-closed-dispatch {
+  background: #14100c;
+  border-top: 2px solid var(--leather-border);
+  padding: 5rem 2rem 3rem;
+  position: relative;
+  text-align: center;
+}
+
+.footer-dispatch-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--bg-parchment);
+  color: var(--ink-primary);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-paper);
+  border: 2px solid #bba37f;
+  position: relative;
+}
+
+.footer-wax-stamp {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #b82a2a, #6c1313);
+  color: #fff;
+  font-family: var(--font-typewriter);
+  font-weight: 700;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -60px auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid #e28a8a;
+  letter-spacing: 0.05em;
+}
+
+.footer-status-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.footer-subject-name {
+  font-size: 2.2rem;
+  color: var(--ink-primary);
+  margin-bottom: 1rem;
+}
+
+.footer-motto-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #3b3126;
+  margin-bottom: 0.4rem;
+}
+
+.footer-submotto {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+}
+
+.footer-contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.footer-contact-btn {
+  background: #241e17;
+  color: var(--brass-gold);
+  border: 1px solid var(--brass-dark);
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.footer-contact-btn:hover {
+  background: var(--brass-gold);
+  color: #120e0a;
+}
+
+.footer-serial-footer {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+  padding-top: 1rem;
+}
+
+/* ==========================================================================
+   EVIDENCE BOARD PROOF GALLERY (SCATTERED LOOK)
+   Section 02 (Evidence), Section 04 (Toolkit), Section 05 (Intelligence)
+   ========================================================================== */
+.modal-proof-image-block {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.proof-gallery-scattered {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 1.25rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding: 0.75rem 0.5rem 1rem;
+}
+
+/* Polaroid-Style Scattered Evidence Frame */
+.modal-proof-polaroid-frame {
+  position: relative;
+  background: #fbf7ee;
+  border: 1px solid #d4c4ad;
+  border-radius: 3px;
+  padding: 9px 9px 18px 9px;
+  width: 165px;
+  max-width: 100%;
+  flex: 0 0 165px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28), 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, z-index 0.1s;
+  cursor: zoom-in;
+  user-select: none;
+  margin: 0.25rem 0;
+}
+
+.modal-proof-polaroid-frame:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 20;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 15px rgba(197, 160, 89, 0.3);
+  border-color: var(--brass-gold);
+}
+
+/* Masking Tape / Evidence Pin on Top of Polaroid */
+.proof-polaroid-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 48px;
+  height: 16px;
+  background: rgba(226, 208, 178, 0.75);
+  border-left: 1px dashed rgba(140, 109, 50, 0.45);
+  border-right: 1px dashed rgba(140, 109, 50, 0.45);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Individual Polaroid Photo */
+.modal-proof-img {
+  width: 100%;
+  height: 115px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+  background: #201912;
+  display: block;
+  filter: sepia(0.08) contrast(1.04);
+  transition: filter 0.2s ease;
+  cursor: zoom-in;
+}
+
+.modal-proof-polaroid-frame:hover .modal-proof-img {
+  filter: sepia(0) contrast(1);
+}
+
+/* Polaroid Watermark / Evidence Stamp */
+.proof-stamp-watermark {
+  font-family: var(--font-typewriter);
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: var(--wax-crimson);
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-top: 7px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  border-top: 1px dashed rgba(166, 43, 43, 0.25);
+  padding-top: 4px;
+}
+
+/* Backward compatibility for single frame */
+.modal-proof-frame {
+  position: relative;
+  background: #fbf7ee;
+  border: 1px solid #d4c4ad;
+  border-radius: 3px;
+  padding: 9px 9px 18px 9px;
+  display: inline-block;
+  max-width: 240px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  cursor: zoom-in;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .subject-dossier-layout {
+    grid-template-columns: 1fr;
+  }
+  .hud-nav-links {
+    display: none;
+  }
+  .deduction-nodes-timeline {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .deduction-nodes-timeline::before {
+    display: none;
+  }
+  .node-indicator {
+    margin: 0;
+  }
+  .deduction-node {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+  .subject-name-display {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .modal-dialog-box {
+    padding: 2rem 1.5rem;
+  }
+  .proof-gallery-scattered {
+    justify-content: center;
+    gap: 1.25rem;
+  }
+  .modal-proof-polaroid-frame {
+    width: 145px;
+    flex: 0 0 145px;
+  }
+  .modal-proof-img {
+    height: 100px;
+  }
+}
