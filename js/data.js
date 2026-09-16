@@ -407,8 +407,8 @@ window.DOSSIER_DATA = {
       category: { vi: "HỒ SƠ NĂNG LỰC DỮ LIỆU", en: "DATA CAPABILITY" },
       badge: "ACTIVE STUDY",
       detail: {
-        vi: "Đang tiếp tục chủ động tự học Python nâng cao để mở rộng khả năng xử lý dữ liệu phức tạp, xây dựng đường ống phân tích và tối ưu hóa giải thuật.",
-        en: "Actively pursuing advanced Python independently to handle complex data manipulation, algorithmic pipelines, and automated analytics."
+        vi: "Đang tiếp tục chủ động tự học Python nâng cao để mở rộng khả năng xử lý dữ liệu phức tạp.",
+        en: "Actively pursuing advanced Python independently to handle complex data manipulation."
       },
       nextStep: {
         vi: "Nghiên cứu sâu các gói thư viện dữ liệu lớn và thuật toán định lượng.",
