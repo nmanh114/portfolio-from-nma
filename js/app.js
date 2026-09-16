@@ -305,8 +305,8 @@ class DossierApp {
 
     document.documentElement.lang = lang;
     document.title = lang === 'vi' 
-      ? 'CASE #070411 // NGUYỄN MINH ÁNH — Forensic Portfolio & Investigation File'
-      : 'CASE #070411 // NGUYEN MINH ANH — Forensic Portfolio & Investigation File';
+      ? 'NGUYỄN MINH ÁNH — Forensic Portfolio & Investigation File'
+      : 'NGUYEN MINH ANH — Forensic Portfolio & Investigation File';
   }
 
   setLanguage(lang) {
