@@ -1221,6 +1221,7 @@ body.magnifier-mode-active [role="button"] {
 }
 
 #hero-desk-prologue {
+  --font--typewriter: 'Courtier Prime', 'Special Elite', monospace;
   position: fixed;
   top: 0;
   left: 0;
