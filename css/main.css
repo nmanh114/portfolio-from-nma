@@ -105,6 +105,7 @@ h1, h2, h3, h4, .serif-text {
    PERSISTENT DETECTIVE DOCKET HUD (Navigation Bar)
    ========================================================================== */
 .detective-hud-dock {
+  --font-typewriter: 'Courier Prime', 'Special Elite', monospace;
   position: fixed;
   top: 0;
   left: 0;
