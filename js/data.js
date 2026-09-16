@@ -438,7 +438,9 @@ window.DOSSIER_DATA = {
         "assets/images/evidence/intel-talent-01.jpg",
         "assets/images/evidence/intel-talent-02.jpg",
         "assets/images/evidence/intel-talent-03.jpg",
-        "assets/images/evidence/intel-talent-04.jpg"
+        "assets/images/evidence/intel-talent-04.jpg",
+        "assets/images/evidence/intel-talent-05.jpg",
+
       ]
     }  
   ],
